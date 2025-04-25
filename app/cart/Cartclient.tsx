@@ -14,11 +14,20 @@ interface CartClientProps {
     currentUser : SafeUser | null | undefined
 }
 
+
 const CartClient: React.FC<CartClientProps> = ({ currentUser })=>{
 
-    const { cartProducts, handleClearCart, cartTotalQty, cartTotalAmount } = UseCart();
+    const { cartProducts, handleClearCart, cartTotalAmount } = UseCart();
 
     const router = useRouter();
+
+    const handleCheckout = () => {
+        if (currentUser) {
+            router.push('/checkout');
+        } else {
+            router.push('/login');
+        }
+    };
 
     if(!cartProducts || cartProducts.length === 0){
         return(
@@ -62,7 +71,7 @@ const CartClient: React.FC<CartClientProps> = ({ currentUser })=>{
                     <Button 
                     label={ currentUser ? 'Realizar pago' : 'Inicia sesión para pagar' } 
                     outline={ currentUser ? false : true }
-                    onclick={()=>{ currentUser ? router.push('/checkout') : router.push('/login') }}
+                    onclick={()=>{ handleCheckout }}
                     />
                     <Link href={'/'} className="flex gap-1 items-center">
                         <IoMdArrowBack />

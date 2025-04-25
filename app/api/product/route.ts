@@ -3,7 +3,7 @@ import prisma from "@/libs/prismadb";
 import { NextResponse } from "next/server";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 
-export async function POST(req: Request, res: Response){
+export async function POST(req: Request){
 
     const currentUser =await getCurrentUser();
 
@@ -39,7 +39,7 @@ export async function POST(req: Request, res: Response){
     }
 }
 
-export async function PUT(req: Request, res: Response){
+export async function PUT(req: Request){
     const currentUser = await getCurrentUser();
 
     if(!currentUser || currentUser.role !== 'ADMIN'){

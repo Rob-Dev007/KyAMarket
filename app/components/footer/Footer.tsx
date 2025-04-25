@@ -6,11 +6,8 @@ import Link from "next/link";
 import { FaFacebook } from "react-icons/fa6";
 import { BsWhatsapp } from "react-icons/bs";
 
-interface FooterProps{
-    children : React.ReactNode
-}
 
-const Footer: React.FC<FooterProps> = ({ children })=>{
+const Footer= ()=>{
     return(
       <footer className="bg-gradient-to-tr from-purple-500 to-fuchsia-500 text-sm text-gray-50">
         <Container>

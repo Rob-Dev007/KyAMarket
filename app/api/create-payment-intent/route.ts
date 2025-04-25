@@ -16,7 +16,7 @@ const calculateOrderAmount = (items: productCartType[])=>{
         return acc + itemTotal;
     }, 0);
 
-    const price: any = Math.floor(totalPrice);
+    const price: number = Math.floor(totalPrice);
 
     return price;
 }
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
                 const updated_intent = await stripe.paymentIntents.update(payment_intent_id, { amount: total });
 
                 //Actuzalizar la orden
-                const [ existing_order, updated_order ] = await Promise.all([
+                const [ existing_order ] = await Promise.all([
                     prisma.order.findUnique({
                         where : { paymentIntentId : payment_intent_id }
                     }),

@@ -7,11 +7,25 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface productsProps {
-    data: any;
+    data: ProductType;
 }
+
+type ReviewType = {
+    rating: number;
+    userId: string;
+    comment: string;
+  };
+  
+  type ProductType = {
+    id: string;
+    name: string;
+    price: number;
+    images: { image: string }[];
+    reviews: ReviewType[];
+  };
 const ProductCard: React.FC<productsProps> = ({ data })=>{
 
-    const productRating = data.reviews.reduce((acc: number, item: any)=> item.rating + acc , 0)/data.reviews.length;
+    const productRating =  data.reviews.length > 0 ? data.reviews.reduce((acc: number, item: ReviewType)=> item.rating + acc , 0)/data.reviews.length : 0;
 
     const router = useRouter();
     

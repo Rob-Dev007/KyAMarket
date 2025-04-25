@@ -18,12 +18,21 @@ interface ManageProductsProps{
     products: Product[]
 }
 
+type RowData = {
+    id: string;
+    name: string;
+    price: string;
+    category: string;
+    brand: string;
+    inStock: boolean;
+  };
+
 const ManageProductsClient: React.FC<ManageProductsProps> = ({ products })=>{
 
     const router = useRouter();
     const storage =  getStorage(firebaseApp);
 
-    let rows: any = [];
+    let rows: RowData[] = [];
 
     if(products){
         rows = products.map(product=>{
@@ -42,7 +51,7 @@ const ManageProductsClient: React.FC<ManageProductsProps> = ({ products })=>{
         axios.put('/api/product', {
             id,
             inStock : !inStock
-        }).then(res=>{
+        }).then(()=>{
             toast.success('Estado del producto cambiado');
             router.refresh();
         }).catch(error=>{
@@ -53,7 +62,7 @@ const ManageProductsClient: React.FC<ManageProductsProps> = ({ products })=>{
         
     }, [])
 
-    const handleDelete = useCallback(async(id: string, images: any[])=>{
+    const handleDelete = useCallback(async(id: string, images: { image: string }[])=>{
         toast('¡Eliminando producto, por favor espere...!');
 
         const handleImageDelete = async()=>{
@@ -71,7 +80,7 @@ const ManageProductsClient: React.FC<ManageProductsProps> = ({ products })=>{
 
         await handleImageDelete();
 
-        axios.delete(`/api/product/${id}`).then(res =>{
+        axios.delete(`/api/product/${id}`).then(() =>{
             toast.success('Producto eliminado exitosamente');
             router.refresh();
         }).catch(error=>{

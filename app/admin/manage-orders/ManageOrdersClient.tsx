@@ -23,11 +23,20 @@ type ExtendedOrder = Order & {
     user : User
 }
 
+type OrderRow = {
+    id: string;
+    customer: string | null;
+    amount: string;
+    paymentStatus: string;
+    date: string;
+    deliveryStatus: string | null;
+  };
+
 const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) =>{
 
     const router = useRouter();
 
-    let rows: any = [];
+    let rows: OrderRow[] = [];
 
     if(orders){
         rows = orders.map(order=>{
@@ -37,7 +46,7 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) =>{
                 amount : FormatPrices(order.amount /100),
                 paymentStatus : order.status,
                 date: moment(order.createDate).fromNow(),
-                deliveryStatus: order.deliveryStatus
+                deliveryStatus: order.deliveryStatus ?? 'pending'
             })
         })
     } 
@@ -46,7 +55,7 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) =>{
         axios.put('/api/order', {
             id,
             deliveryStatus : 'dispatched'
-        }).then(res=>{
+        }).then(()=>{
             toast.success('Orden despachada');
             router.refresh();
         }).catch(error=>{
@@ -59,7 +68,7 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) =>{
         axios.put('/api/order',{
             id,
             deliveryStatus: 'delivered'
-        }).then(res=>{
+        }).then(()=>{
             toast.success('Orden entregada');
             router.refresh();
         }).catch(error=>{

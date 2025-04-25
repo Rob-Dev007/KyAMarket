@@ -9,7 +9,7 @@ import Heading from "../components/Heading";
 import Button from "../components/button";
 
 interface CheckoutFormProps {
-    clientSecret : String,
+    clientSecret : string,
     handlePaymentSuccess : (value: boolean)=> void,
 }
 

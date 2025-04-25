@@ -68,7 +68,7 @@ const AddProductsForm = ()=>{
         //Save the product to MongoDB
         setIsLoading(true);
 
-        let uploadedImages: UploadedImageType[] = [];
+        const uploadedImages: UploadedImageType[] = [];
 
         if(!data.category){
             setIsLoading(false);
@@ -145,7 +145,8 @@ const AddProductsForm = ()=>{
             router.refresh();
             
         }).catch(error=>{
-            toast.error('Producto no fue creado')
+            toast.error('Producto no fue creado');
+            console.log(error)
         }).finally(()=>{
             setIsLoading(false);
         })
@@ -153,7 +154,7 @@ const AddProductsForm = ()=>{
 
     const category = watch('category');
 
-    const setCustomValue = (id:string, value:any)=>{
+    const setCustomValue = (id: keyof FieldValues, value: FieldValues[keyof FieldValues])=>{
         setValue(id, value, {
             shouldValidate: true,
             shouldDirty: true,

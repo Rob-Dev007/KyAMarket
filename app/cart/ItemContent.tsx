@@ -1,8 +1,6 @@
 'use client';
 
-import FormatPrices from "@/utils/FormatPrices";
 import { productCartType } from "../producto/[productId]/ProductDetails";
-import { ImRtl } from "react-icons/im";
 import Link from "next/link";
 import { TruncarTextos } from "@/utils/truncarTexto";
 import Image from "next/image";
@@ -12,7 +10,6 @@ import formatPrices from "@/utils/FormatPrices";
 
 interface ItemContentProps{
     item: productCartType,
-
 }
 
 const ItemContent: React.FC<ItemContentProps> = ({ item })=>{

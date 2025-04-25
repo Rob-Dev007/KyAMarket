@@ -1,10 +1,11 @@
 'use client';
 import { SelectedImgType, productCartType } from "@/app/producto/[productId]/ProductDetails";
+import { ProductType } from "@/types/product";
 import Image from "next/image";
 
 interface ProductImageProps{
     cartProduct: productCartType,
-    product: any,
+    product: ProductType,
     handleColorSelected : (value: SelectedImgType) => void
 }
 

@@ -33,7 +33,7 @@ const AddRating: React.FC<AddRatingProps> = ({ product, user })=>{
         }
     });
 
-    const setCustomValue = (id: string, value: any)=>{
+    const setCustomValue = <T extends keyof FieldValues>(id: T, value: FieldValues[T]) =>{
         setValue(id, value, {
             shouldTouch: true,
             shouldDirty: true,
@@ -51,7 +51,7 @@ const AddRating: React.FC<AddRatingProps> = ({ product, user })=>{
         const ratingData = {...data, userId: user?.id, product: product};
 
         axios.post('/api/rating', ratingData)
-        .then(res=>{
+        .then(()=>{
             toast.success('Calificación enviada con éxito');
             router.refresh();
             reset();

@@ -41,7 +41,7 @@ export default async function RootLayout({
             <main className="flex-grow">
               {children}
             </main>
-            <Footer children={undefined} />
+            <Footer />
           </div>
         </CartProvider>
       </body>

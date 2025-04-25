@@ -1,6 +1,5 @@
 'use client';
 
-import { register } from "module";
 import Heading from "../components/Heading";
 import Input from "../components/inputs/Input";
 import { useState, useEffect } from "react";
@@ -34,9 +33,9 @@ const RegisterForm:React.FC<RegisterFormProps> = ({ currentUser })=>{
     useEffect(()=>{
         if(currentUser){
             router.push('/login')
-            router.refresh
+            router.refresh();
         }
-    }, [])
+    }, [currentUser, router])
 
     const onSubmit: SubmitHandler<FieldValues> = (data)=>{
         setIsLoading(true);

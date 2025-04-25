@@ -19,11 +19,20 @@ type ExtendedOrder = Order & {
     user : User
 }
 
+type RowType = {
+    id: string;
+    customer: string | null;
+    amount: string;
+    paymentStatus: string;
+    date: string;
+    deliveryStatus: string | null;
+  };
+
 const  OrderClient: React.FC<OrderClientProps> = ({ orders }) =>{
 
     const router = useRouter();
 
-    let rows: any = [];
+    let rows: RowType[] = [];
 
     if(orders){
         rows = orders.map(order=>{

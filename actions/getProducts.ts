@@ -1,11 +1,18 @@
 import prisma from "@/libs/prismadb";
+import { Product, Review, User } from "@prisma/client";
 
 export interface IProductsParams {
     category?: string | null;
     searchTerm?: string | null;
   }
   
-export default async function getProducts(params: IProductsParams) {
+export interface ExtendedProduct extends Product {
+    reviews: (Review & {
+      user: User;
+    })[];
+  }
+  
+export default async function getProducts(params: IProductsParams): Promise<ExtendedProduct[]> {
     try{
     const { category, searchTerm } = params;
        

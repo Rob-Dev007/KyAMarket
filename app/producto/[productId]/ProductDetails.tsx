@@ -6,13 +6,21 @@ import SetColor from "@/app/components/products/SetColor";
 import SetQuantity from "@/app/components/products/setQuantity";
 import { UseCart } from "@/hooks/useCart";
 import { Rating } from "@mui/material";
+import { Product } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { MdCheckCircle } from "react-icons/md";
 
 
 interface ProductProps {
-    product : any
+    product: Product & {
+        images: SelectedImgType[],
+        reviews: {
+          rating: number,
+          comment: string
+        }[],
+        inStock: boolean
+      }
 }
 
 export type productCartType =  {
@@ -59,14 +67,14 @@ const ProductDetails: React.FC <ProductProps>  = ({ product })=>{
                 setIsProductInCart(true);
             }
         }
-    },[cartProducts])
+    },[cartProducts, product.id])
 
     const Horizontal = ()=>{
         return <hr className="w-[30%] my-2"/>
     }
 
     const productRating = 
-        product.reviews.reduce((acc: number ,item: any)=>
+        product.reviews.reduce((acc,item)=>
             item.rating + acc, 0)/product.reviews.length
     
     const handleColorSelected =  useCallback((value: SelectedImgType)=>{

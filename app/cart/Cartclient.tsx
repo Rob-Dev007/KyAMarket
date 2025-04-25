@@ -71,7 +71,7 @@ const CartClient: React.FC<CartClientProps> = ({ currentUser })=>{
                     <Button 
                     label={ currentUser ? 'Realizar pago' : 'Inicia sesión para pagar' } 
                     outline={ currentUser ? false : true }
-                    onclick={()=>{ handleCheckout }}
+                    onclick={ handleCheckout }
                     />
                     <Link href={'/'} className="flex gap-1 items-center">
                         <IoMdArrowBack />

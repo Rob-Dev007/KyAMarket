@@ -37,13 +37,29 @@ export default async function handler(
 
     switch(event.type){
         case 'charge.succeeded':
-            const charge: any  = event.data.object as Stripe.Charge;
+            const charge  = event.data.object as Stripe.Charge;
 
-            if(typeof charge.payment_intent === 'string'){
+            if (typeof charge.payment_intent === 'string') {
+                // Transformar la dirección para que no tenga valores null en las propiedades
+                const address = charge.shipping?.address;
+                const transformedAddress = {
+                    ...address,
+                    city: address?.city ?? '',  
+                    line1: address?.line1 ?? '',  
+                    line2: address?.line2 ?? '', 
+                    postal_code: address?.postal_code ?? '', 
+                    state: address?.state ?? '', 
+                    country: address?.country ?? '', 
+                };
+
+                // Actualización de Prisma
                 await prisma?.order.update({
-                    where: { paymentIntentId : charge.payment_intent },
-                    data: { status: 'complete', address: charge.shipping?.address }
-                })
+                    where: { paymentIntentId: charge.payment_intent },
+                    data: {
+                        status: 'complete',
+                        address: transformedAddress
+                    }
+                });
             }
             break;
             default:

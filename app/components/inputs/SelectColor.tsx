@@ -27,7 +27,7 @@ const SelectColor: React.FC<SelectColorProps> = ({ item, addImageToState, remove
     const handleFileChange = useCallback((value: File)=>{
         setFile(value);
         addImageToState({...item, image: value});
-    },[])
+    },[addImageToState, item])
 
     const handleCheck = useCallback((e: React.ChangeEvent<HTMLInputElement>)=>{
         setIsSelected(e.target.checked);

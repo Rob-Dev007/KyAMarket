@@ -81,7 +81,7 @@ const ProductDetails: React.FC <ProductProps>  = ({ product })=>{
         setCartProduct((prev)=>{
             return {...prev, selectedImg: value}
         })
-    },[cartProduct.selectedImg]);
+    },[]);
 
     const handleQtyIncrease = useCallback(()=>{
         
@@ -91,7 +91,7 @@ const ProductDetails: React.FC <ProductProps>  = ({ product })=>{
             }
             return { ...prev, quantity: prev.quantity + 1}
         });
-    },[cartProduct]);
+    },[]);
 
     const handleQtyDecrease = useCallback(()=>{
        
@@ -101,7 +101,7 @@ const ProductDetails: React.FC <ProductProps>  = ({ product })=>{
             }
             return { ...prev, quantity: prev.quantity - 1 }
         });
-    },[cartProduct]);
+    },[]);
 
     return(
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">

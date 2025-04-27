@@ -60,7 +60,7 @@ const ManageProductsClient: React.FC<ManageProductsProps> = ({ products })=>{
         })
             
         
-    }, [])
+    }, [router])
 
     const handleDelete = useCallback(async(id: string, images: { image: string }[])=>{
         toast('¡Eliminando producto, por favor espere...!');

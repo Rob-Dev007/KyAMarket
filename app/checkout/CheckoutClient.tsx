@@ -63,7 +63,7 @@ const CheckoutClient = ()=>{
                 toast.error(`Ocurrió un error : ${error.message}`);
             })
         }
-    }, [ cartProducts, paymentIntent ])
+    }, [ cartProducts, paymentIntent, handleSetPaymentIntent, router ])
 
     const options:StripeElementsOptions ={
         clientSecret,

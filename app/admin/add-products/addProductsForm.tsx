@@ -59,7 +59,7 @@ const AddProductsForm = ()=>{
 
     useEffect(()=>{
         setCustomValue('images', images)
-    },[images]);
+    },[]);
 
     useEffect(()=>{
         if(isProductCreated){
@@ -67,7 +67,7 @@ const AddProductsForm = ()=>{
             setImages(null);
             setIsProductCreated(false);
         }
-    },[isProductCreated, reset])
+    },[])
 
     const onSubmit: SubmitHandler<FieldValues> = async(data) =>{
         //uploaded images to Firebase

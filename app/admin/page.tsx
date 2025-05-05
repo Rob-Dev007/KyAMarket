@@ -8,29 +8,24 @@ import BarGraph from "./BarGraph";
 
 const Admin = async()=>{
 
-    const orders = await getOrders() ?? [] ;
-    const products = await getProducts({ category: null });
-    const users = await getUsers();
-    const graphData = await getGraphData();
+  const orders = await getOrders() ?? [];
+  const products = await getProducts({ category: null });
+  const users = await getUsers();
+  const graphData = await getGraphData();
 
-
-    // Preparamos los datos para el gráfico
   const labels = graphData.map((item) => item.day);
   const amounts = graphData.map((item) => item.totalAmount);
 
-
-
-    return(
-        <div className="py-8">
-            <Container>
-                <Summary orders={ orders } products={ products } users={ users }/>
-                <div className="mt-4 mx-auto  max-w-[1150px]">
-                <BarGraph labels={labels} amounts={amounts} />
-                </div>
-            </Container>
+  return (
+    <div className="py-8">
+      <Container>
+        <Summary orders={orders} products={products} users={users} />
+        <div className="mt-4 mx-auto max-w-[1150px]">
+          <BarGraph labels={labels} amounts={amounts} />
         </div>
-    )
+      </Container>
+    </div>
+  );
+}
 
-};
-
-export default Admin; 
+export default Admin;

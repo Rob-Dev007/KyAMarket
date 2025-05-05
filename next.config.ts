@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import  NextConfig  from "next";
 
 const nextConfig: NextConfig = {
   images:{
@@ -9,7 +9,8 @@ const nextConfig: NextConfig = {
         hostname: 'firebasestorage.googleapis.com',
       },
     ],
-  }
+  },
+  
 };
 
 export default nextConfig;

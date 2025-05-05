@@ -1,12 +1,7 @@
 import prisma from "@/libs/prismadb";
 
-interface IParams {
-    orderId?: string;
-}
-
-export default async function getOrderById(params: IParams) {
+export default async function getOrderById({ orderId }: { orderId: string }) {
     try {
-        const { orderId } = params;
 
         if (!orderId) return null;
         

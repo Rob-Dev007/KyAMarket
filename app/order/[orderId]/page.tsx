@@ -3,13 +3,13 @@ import OrderDetail from "./OrderDetails";
 import getOrderById from "@/actions/getOrderById";
 import NullData from "@/app/components/NullData";
 
-interface IParams {
-  orderId: string;
+interface PageProps {
+  params: {
+    orderId: string;
+  };
 }
 
-export default async function Page({ params } : { params: IParams }) {
-  
-
+const Page = async ({ params }: PageProps) => {
   const order = await getOrderById({ orderId: params.orderId });
 
   if (!order) {
@@ -23,4 +23,6 @@ export default async function Page({ params } : { params: IParams }) {
       </Container>
     </div>
   );
-}
+};
+
+export default Page;

@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   description: "Ecommerce K&A Cell",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function RootLayout({
   children,
 }: {

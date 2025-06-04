@@ -24,7 +24,7 @@ export default async function getProductById(params: IParams){
             }
         })
 
-        if(!product) null;
+        if(!product) return null;
 
         return product;
     }catch(error: any){

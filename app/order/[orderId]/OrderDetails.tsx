@@ -21,11 +21,11 @@ const OrderDetail: React.FC<OrderDetailProps> = ({ order })=>{
                 <Heading title="Detalles del producto"/>
             </div>
             <div>Order Id: { order.id }</div>
-            <div>Total Importe: <span className="font-bold">{ FormatPrices(order.amount) }</span></div>
+            <div>Total Importe: <span className="font-bold">{ FormatPrices(order.amount / 100) }</span></div>
             <div className="">
                 <div>Estado de pago: </div>
                 <div className="flex gap-2 items-center">
-                    { order.status === 'pending' ? (<Status text="Pendiente" icon={ MdAccessTimeFilled } bg="bg-slate-200" color="text-slate-700"/>) : order.status === 'completed' ? (<Status text="Completado" icon={ MdDone } bg="bg-green-200" color="text-green-700"/>) : (<></>)}
+                    { order.status === 'pending' ? (<Status text="Pendiente" icon={ MdAccessTimeFilled } bg="bg-slate-200" color="text-slate-700"/>) : order.status === 'complete' ? (<Status text="Completado" icon={ MdDone } bg="bg-teal-200" color="text-teal-700"/>) : (<></>)}
                 </div>
                 <div className="flex items-center gap-2">
                     { order.deliveryStatus === 'pending' ? (<Status text="Pendiente" icon={ MdAccessTimeFilled } bg="bg-slate-200" color="text-slate-700"/>) :

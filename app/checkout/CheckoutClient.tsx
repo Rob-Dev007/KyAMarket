@@ -30,21 +30,27 @@ const CheckoutClient = ()=>{
             setLoading(true);
             setError(false);
 
+            console.log("Tipo de paymentIntent:", typeof paymentIntent);
+
             fetch('/api/create-payment-intent',{
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
-                    //'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
                 body: JSON.stringify({
                     items: cartProducts,
                     payment_intent_id: paymentIntent
                 })
-            }).then((res)=>{
+            }).then(async (res)=>{
                 console.log(res)
                 setLoading(false);
                 if(res.status === 401){
                     return router.push('/login');
+                }
+
+                if (!res.ok) {
+                    const errorData = await res.json();
+                    throw new Error(errorData.message || "Error desconocido");
                 }
 
                 return res.json()

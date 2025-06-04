@@ -92,7 +92,7 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) =>{
         renderCell:(params)=>{
             return(<div>{ params.row.paymentStatus === 'pending' ?
             (<Status text="Pendiente" icon={ MdAccessTimeFilled } bg="bg-slate-200" color="text-slate-700"/>) :
-            params.row.paymentStatus  === 'completed' ?
+            params.row.paymentStatus  === 'complete' ?
             (<Status text="Completado" icon={ MdDone } bg="bg-green-200" color="text-green-700"/>) :
             (<></>) 
         }</div>)
@@ -128,7 +128,7 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) =>{
     return(
         <div className="max-w-[1150px] mx-auto text-xl">
             <div className="mb-4 mt-8">
-                <Heading title="Administra tus ordenes" center/>
+                <Heading title="Administra las ordenes" center/>
             </div>
             <div style={{ height: 600, width: "100%" }}>
                 <DataGrid

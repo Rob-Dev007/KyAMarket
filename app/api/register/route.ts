@@ -2,6 +2,8 @@ import bcrypt from "bcrypt";
 import prisma from "@/libs/prismadb";
 import { NextResponse } from "next/server";
 
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || '').split(',');
+
 export async function POST(req: Request){
 
     try {
@@ -22,9 +24,14 @@ export async function POST(req: Request){
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        const isAdmin = ADMIN_EMAILS.includes(email);
+          
         const user = await prisma.user.create({
             data:{
-                name, email, hashedPassword
+                name, 
+                email, 
+                hashedPassword,
+                role: isAdmin ? 'ADMIN' : 'USER'
             }
         })
 

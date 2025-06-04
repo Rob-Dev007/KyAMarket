@@ -11,8 +11,9 @@ export default async function getOrders(){
             }
         });
 
-        return orders;
+        return orders ?? [];
     }catch(error){
         console.log(error);
+        return [];
     }
 }

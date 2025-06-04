@@ -1,10 +1,11 @@
 import prisma from "@/libs/prismadb";
 import { Product, Review, User } from "@prisma/client";
 
-export interface IParams {
-  category?: string | null;
-  searchTerm?: string | null;
+interface Params {
+  category: string | null;
+  searchTerm: string;
 }
+
 
 export interface ExtendedProduct extends Product {
   reviews: (Review & {
@@ -12,10 +13,8 @@ export interface ExtendedProduct extends Product {
   })[];
 }
 
-export default async function getProducts(params: IParams){
+export default async function getProducts({ category, searchTerm }: Params ){
   try {
-    const category = params.category || null;
-    const searchTerm = params.searchTerm || '';
 
     const query: any = {};
 

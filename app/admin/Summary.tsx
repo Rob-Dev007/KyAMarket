@@ -18,7 +18,7 @@ type SummaryDataType = {
 const Summary: React.FC<SummaryProps> = ({ orders, products, users }) => {
   // Procesamos los datos directamente
   const totalSale = orders.reduce((acc, item) => {
-    return item.status === "complete" ? acc + item.amount : acc;
+    return item.status === "complete" ? acc + item.amount / 100 : acc;
   }, 0);
 
   const paidOrders = orders.filter((order) => order.status === "complete").length;

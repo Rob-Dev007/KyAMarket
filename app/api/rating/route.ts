@@ -19,7 +19,7 @@ export async function POST(req: Request){
         return order.products.find(item=> item.id === product.id ) && order.deliveryStatus === 'delivered';
     })
 
-    const userReview =  product?.review.find((review: Review)=>{
+    const userReview =  product?.reviews.find((review: Review)=>{
         return review.userId === currentUser.id;
     })
 

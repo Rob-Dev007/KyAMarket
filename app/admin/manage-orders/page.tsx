@@ -7,7 +7,8 @@ import getOrders from "@/actions/getOrders";
 
 const ManageOrders = async()=>{
 
-    const orders = await getOrders() ?? [];
+    const orders = await getOrders();
+    console.log("ORDERS:", orders);
     const currentUser =  await getCurrentUser();
 
     if(!currentUser || currentUser.role !== 'ADMIN'){

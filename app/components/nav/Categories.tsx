@@ -20,15 +20,12 @@ const Categories = ()=>{
             <Container>
                 <div className="flex pt-4 items-center justify-between overflow-x-auto">
                     { categories.map(item=>(
-                    
                         <Category key={ item.label } icon={ item.icon } label={ item.label } selected={ category === item.label || (category === null && item.label === 'Todas')} />
-                        
                         )) }
                 </div>
             </Container>
         </div>
     )
-
 }
 
 export default Categories;

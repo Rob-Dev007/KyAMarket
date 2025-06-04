@@ -6,7 +6,7 @@ import ManageProductsClient from "./ManageProducts";
 
 const ManageProducts = async () =>{
 
-    const products = await getProducts({ category: null });
+    const products = await getProducts({ category: null, searchTerm: '' });
     const currentUser = await getCurrentUser();
 
     if(!currentUser || currentUser?.role !== 'ADMIN'){

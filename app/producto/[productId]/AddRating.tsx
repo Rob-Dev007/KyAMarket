@@ -26,7 +26,7 @@ const AddRating: React.FC<AddRatingProps> = ({ product, user })=>{
     const [ isLoading, setIsLoading ] = useState(false);
     const router = useRouter();
 
-    const { register,handleSubmit,setValue, reset, formState: { errors }} = useForm<FieldValues>({
+    const { register, handleSubmit, setValue, reset, formState: { errors }} = useForm<FieldValues>({
         defaultValues:{
             comment: '',
             rating: 0
@@ -70,7 +70,7 @@ const AddRating: React.FC<AddRatingProps> = ({ product, user })=>{
 
     const userReview = product?.reviews.find((review: Review)=> review.userId === user.id );
 
-    if(!deliveredOrder || !userReview) return null;
+    if(!deliveredOrder || userReview) return null;
 
     return(
         <div className="flex flex-col gap-2 max-w-[500px]">

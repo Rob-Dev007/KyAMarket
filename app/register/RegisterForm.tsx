@@ -40,7 +40,11 @@ const RegisterForm:React.FC<RegisterFormProps> = ({ currentUser })=>{
     const onSubmit: SubmitHandler<FieldValues> = (data)=>{
         setIsLoading(true);
 
-        axios.post('/api/register', data).then(()=>{
+        axios.post('/api/register',{
+            name: data.name,
+            email: data.email,
+            password: data.password,
+        }).then(()=>{
             toast.success('Cuenta creada con éxito')
 
             signIn('credentials',{
@@ -58,9 +62,12 @@ const RegisterForm:React.FC<RegisterFormProps> = ({ currentUser })=>{
                 }
             }
             )
-        }).catch(()=>toast.error('Ocurrió un error')).finally(()=>setIsLoading(false));
-
-        
+        }).catch((error)=>{
+            if (error.response?.status === 409) {
+            toast.error("El usuario ya está registrado");
+            }else{
+            toast.error("Ocurrió un error al registrarte");
+          }}).finally(()=>setIsLoading(false));
     };
 
     if(currentUser){
@@ -99,8 +106,9 @@ const RegisterForm:React.FC<RegisterFormProps> = ({ currentUser })=>{
                 errors={ errors }
                 required
             />
-            <Button label={isLoading ? 'Cargando' : 'Registrate'} onclick={ handleSubmit(onSubmit) }/>
-            <p className="text-sm">¿Ya tienes una cuenta? <Link className="font-bold" href='/register'>Inicia sesión</Link> </p>
+           
+            <Button label={isLoading ? 'Cargando' : 'Registrate'} onclick={ handleSubmit(onSubmit) } disabled={ isLoading }/>
+            <p className="text-sm">¿Ya tienes una cuenta? <Link className="font-bold" href='/login'>Inicia sesión</Link> </p>
         </>
     )
 };

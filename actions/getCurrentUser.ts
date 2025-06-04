@@ -29,10 +29,15 @@ export async function getCurrentUser(){
         } 
 
         return{
-            ...currentUser,
-            createdAt : currentUser?.createdAt.toISOString(),
-            updateAt : currentUser?.updateAt.toISOString(),
-            emailVerified: currentUser.emailVerified?.toISOString() || null
+            id: currentUser.id,
+            name: currentUser.name,
+            email: currentUser.email,
+            image: currentUser.image,
+            role: currentUser.role, 
+            orders: currentUser.orders,
+            createdAt: currentUser.createdAt.toISOString(),
+            updateAt: currentUser.updateAt.toISOString(),
+            emailVerified: currentUser.emailVerified?.toISOString() || null,
         }
     } catch (error) {
         console.log(error);

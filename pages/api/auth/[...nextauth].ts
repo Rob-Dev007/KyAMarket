@@ -48,17 +48,44 @@ export const authOptions : AuthOptions = {
 
         })
     ],
-    /**cookies: {
-        sessionToken: {
-          name: `__Secure-next-auth.session-token`,
-          options: {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production", // Solo en producción
-            sameSite: "lax",
-            path: "/",
+    callbacks: {
+        async signIn({ user }) {
+            const adminEmails = process.env.ADMIN_EMAILS?.split(',') || [];
+        
+            if (user?.email && adminEmails.includes(user.email) && user.role !== 'ADMIN') {
+              await prisma.user.update({
+                where: { email: user.email },
+                data: { role: 'ADMIN' },
+              });
+            }
+        
+            return true;
           },
+        async jwt({ token, user }) {
+          if (user) {
+            token.role = user.role;
+          }
+          return token;
         },
-      },**/
+        async session({ session, token }) {
+          if (token && session.user) {
+            session.user.role = token.role;
+          }
+          return session;
+        },
+    },
+    events: {
+        async createUser({ user }) {
+          const adminEmails = process.env.ADMIN_EMAILS?.split(',') || [];
+      
+          if (user?.email && adminEmails.includes(user.email)) {
+            await prisma.user.update({
+              where: { email: user.email },
+              data: { role: 'ADMIN' },
+            });
+          }
+        }
+      },
     pages:{
         signIn: '/login'
     },

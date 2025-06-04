@@ -63,7 +63,7 @@ const  OrderClient: React.FC<OrderClientProps> = ({ orders }) =>{
             return(<div>{ params.row.paymentStatus === 'pending' ?
             (<Status text="Pendiente" icon={ MdAccessTimeFilled } bg="bg-slate-200" color="text-slate-700"/>) :
             params.row.paymentStatus  === 'complete' ?
-            (<Status text="Completado" icon={ MdDone } bg="bg-purple-200" color="text-purple-700"/>) :
+            (<Status text="Completado" icon={ MdDone } bg="bg-teal-200" color="text-teal-700"/>) :
             (<></>) 
         }</div>)
         }},

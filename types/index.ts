@@ -5,9 +5,6 @@ export type SafeUser = Omit<User, "createdAt" | "updateAt" | "emailVerified" | "
     updateAt : string,
     emailVerified : string | null,
     role: 'USER' | 'ADMIN'; 
-}
+} | null;
 
-export interface IParams {
-    orderId: string;
-  }
 

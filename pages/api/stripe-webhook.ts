@@ -35,11 +35,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     switch (event.type) {
       case "charge.succeeded":
-        const charge: any = event.data.object as Stripe.Charge;
+        const charge = event.data.object as Stripe.Charge;
         if(typeof charge.payment_intent === 'string'){
+          const rawAddress = charge.shipping?.address;
+
+          const sanitizedAddress = rawAddress
+            ? {
+                city: rawAddress.city ?? '',
+                country: rawAddress.country ?? '',
+                state: rawAddress.state ?? '',
+                line1: rawAddress.line1 ?? '',
+                line2: rawAddress.line2 ?? undefined, // Es opcional
+                postal_code: rawAddress.postal_code ?? '',
+              }
+            : null;
+
           await prisma?.order.update({
             where: { paymentIntentId: charge.payment_intent },
-            data : { status: 'complete', address: charge.shipping?.address }
+            data : { 
+              status: 'complete',  
+              address: sanitizedAddress
+            }
           })
         }
         break;

@@ -87,11 +87,10 @@ export async function POST(req: Request) {
 
       return NextResponse.json({ paymentIntent });
     }
-  } catch (err: any) {
-    console.error("❌ Error en el servidor:", err.message);
-    return NextResponse.json(
-      { error: "Ocurrió un error al procesar el pago" },
-      { status: 500 }
-    );
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("❌ Error en el servidor:", error.message);
+      return NextResponse.json({ error: "Ocurrió un error al procesar el pago" }, { status: 500 });
+    }
   }
 }

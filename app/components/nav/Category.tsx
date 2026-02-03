@@ -32,7 +32,7 @@ const Category: React.FC<CategoryProps> = ({ icon: Icon, label, selected })=>{
         router.push(url);
     }, [label, params, router])
     return(
-        <div onClick={ handleClick } className={`flex items-center justify-center text-center gap-1 border-b-4 hover:text-slate-800 transition cursor-pointer ${selected ? 'border-b-slate-800 text-slate-800' : 'border-transparent text-slate-500'}`}>
+        <div onClick={ handleClick } className={`flex flex-shrink-0 items-center justify-center text-center gap-1 border-b-4 px-4 xl:px-0 hover:text-slate-800 transition cursor-pointer ${selected ? 'border-b-slate-800 text-slate-800' : 'border-transparent text-slate-500'}`}>
             <Icon size={ 20 } />
             <div className="font-medium text-sm">{ label }</div>
         </div>

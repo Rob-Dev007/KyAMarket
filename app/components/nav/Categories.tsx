@@ -18,7 +18,7 @@ const Categories = ()=>{
     return(
         <div className="bg-white">
             <Container>
-                <div className="flex pt-4 items-center justify-between overflow-x-auto">
+                <div className="flex pt-4 pb-2 items-center justify-between overflow-x-auto scrollbar-hide">
                     { categories.map(item=>(
                         <Category key={ item.label } icon={ item.icon } label={ item.label } selected={ category === item.label || (category === null && item.label === 'Todas')} />
                         )) }

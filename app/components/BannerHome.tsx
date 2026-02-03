@@ -8,12 +8,17 @@ const BannerHome = ()=>{
                     <h1 className="font-bold text-4xl md:text-6xl text-gray-200 mb-4">Ventas de temporada!</h1>
                     <p className="text-lg md:text-2xl">Encuentra productos de temporada</p>
                 </div>
-                <div className="w-1/3 relative aspect-video">
+                <div className="w-full sm:w-3/4 md:w-1/3 flex justify-center">
                     <Image
-                    src="/banner-image.png"
-                    alt="imagen-banner"
-                    className="object-contain"
-                    fill
+                        src="/banner-image.png"
+                        alt="imagen-banner"
+                        className="object-contain w-full h-auto"
+                        width={640}
+                        height={360}
+                        priority
+                        sizes="(max-width: 768px) 100vw,
+                        (max-width: 1024px) 75vw,
+                        33vw"
                     />
                 </div>
             </div>

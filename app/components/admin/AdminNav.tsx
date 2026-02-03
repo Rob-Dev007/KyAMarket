@@ -16,7 +16,7 @@ const AdminNav = ()=>{
     return(
         <div className="w-full top-20 shadow-sm border-b-[1px] pt-4">
             <Container>
-                <div className="flex flex-row gap-8 md:gap-12 items-center justify-between md:justify-center overflow-x-auto flex-nowrap">
+                <div className="flex flex-row gap-8 md:gap-12 items-center justify-between md:justify-center scrollbar-hide overflow-x-auto flex-nowrap">
                     <Link href='/admin'>
                         <AdminNavItem label="Resumen" icon={ RiDashboardHorizontalFill } selected={ pathname === '/admin' }/>
                     </Link>

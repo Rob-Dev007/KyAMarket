@@ -7,7 +7,6 @@ import CustomCheckbox from "@/app/components/inputs/CustomCheckbox";
 import Input from "@/app/components/inputs/Input";
 import SelectColor from "@/app/components/inputs/SelectColor";
 import TextArea from "@/app/components/inputs/TextArea";
-import firebaseApp from "@/libs/firebase";
 import { categories } from "@/utils/Categories";
 import { colors } from "@/utils/Colors";
 import React from "react";
@@ -15,7 +14,6 @@ import { useState, useEffect, useCallback } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/dist/client/components/navigation";
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import axios from "axios";
 
 export type ImageType = {
@@ -70,7 +68,7 @@ const AddProductsForm = ()=>{
     },[])
 
     const onSubmit: SubmitHandler<FieldValues> = async(data) =>{
-        //uploaded images to Firebase
+        //uploaded images to Cloudinary
         console.log('data: ', data);
 
         //Save the product to MongoDB
@@ -93,12 +91,31 @@ const AddProductsForm = ()=>{
             try{
                 for(const item of data.images){
                     if(item.image){
-                        const fileName = new Date().getTime() + '' + item.image.name;
-                        const storage = getStorage(firebaseApp);
-                        const storageRef = ref(storage, `products/${fileName}`)
-                        const uploadTask = uploadBytesResumable(storageRef, item.image);
+                        const formData = new FormData();
+                        formData.append('file', item.image);
 
-                        await new Promise<void>((resolve, reject)=>{
+                        const res = await fetch('/api/upload', {
+                            method: "POST",
+                            body: formData
+                        })
+
+                        if(!res.ok){
+                           return toast.error('Error en el servidor, intente nuevamente');
+                        } 
+
+                        const imageData:{ url:string }= await res.json();
+
+                        if(!imageData.url){
+                            return toast.error('No se pudo guardar la imágen en el servidor');
+                        }
+
+                        uploadedImages.push({
+                            color: item.color,
+                            colorCode: item.colorCode,
+                            image: imageData.url
+                        })
+
+                        /**await new Promise<void>((resolve, reject)=>{
                             uploadTask.on(
                                 'state_changed',
                                 (snapshot)=>{
@@ -133,7 +150,7 @@ const AddProductsForm = ()=>{
                                     }));
                                 }
                                 )
-                        })
+                        })**/
                     }
                 }
             }catch(error){

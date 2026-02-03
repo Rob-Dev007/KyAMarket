@@ -6,7 +6,10 @@ interface IParams{
 
 export default async function getProductById(params: IParams){
     try{
+
         const { productId } = params;
+
+        if(!productId) return null;
 
         const product = await prisma.product.findUnique({
             where: { 
@@ -28,6 +31,6 @@ export default async function getProductById(params: IParams){
 
         return product;
     }catch(error: any){
-        throw new Error(error)
+        throw new Error(error.message || "Error al obtener producto")
     }
 }

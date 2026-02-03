@@ -23,9 +23,13 @@ type ReviewType = {
     images: { image: string }[];
     reviews: ReviewType[];
   };
-const ProductCard: React.FC<productsProps> = ({ data })=>{
+const ProductCard = ({ data }: productsProps)=>{
 
-    const productRating =  data.reviews.length > 0 ? data.reviews.reduce((acc: number, item: ReviewType)=> item.rating + acc , 0)/data.reviews.length : 0;
+    if(!data) return null;
+
+    const productRating =  data.reviews.length > 0 ? data.reviews.reduce((acc: number, item: ReviewType)=> acc + item.rating , 0)/data.reviews.length : 0;
+
+    const srcImg = data?.images?.length > 0 ? data.images[0].image : 'Placeholder.png';
 
     const router = useRouter();
     
@@ -35,10 +39,11 @@ const ProductCard: React.FC<productsProps> = ({ data })=>{
             <div className="flex flex-col items-center w-full gap-1">
                 <div className="aspect-square overflow-hidden relative w-full">
                     <Image 
-                    fill
-                    alt={ data.name }
-                    src={ data.images[0].image }
-                    className="w-full h-full object-contain"
+                        fill
+                        alt={ data.name }
+                        src={ srcImg }
+                        className="w-full h-full object-contain"
+                        unoptimized
                     />
                 </div>
                 <div className="mt-4"> { TruncarTextos(data.name) } </div>

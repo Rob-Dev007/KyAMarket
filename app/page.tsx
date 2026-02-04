@@ -7,15 +7,17 @@ import getProducts from "@/actions/getProducts";
 import NullData from "./components/NullData";
 
 type Props = {
-  searchParams: {
+  searchParams: Promise<{
     searchTerm?: string | string[];
     category?: string | string[];
-  };
+  }>;
 };
 
 export default async function Home({ searchParams }: Props) {
-  const searchTerm = Array.isArray(searchParams.searchTerm) ? searchParams.searchTerm[0] : searchParams.searchTerm ?? '';
-  const category = Array.isArray(searchParams.category) ? searchParams.category[0] : searchParams.category ?? '';
+
+  const params = await searchParams;
+  const searchTerm = Array.isArray(params.searchTerm) ? params.searchTerm[0] : params.searchTerm ?? '';
+  const category = Array.isArray(params.category) ? params.category[0] : params.category ?? '';
 
   const products =  await getProducts( {searchTerm, category} );
 

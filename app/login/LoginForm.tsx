@@ -16,7 +16,7 @@ interface LoginFormProps{
     currentUser : SafeUser | null
 }
 
-const LoginForm:React.FC<LoginFormProps> = ({ currentUser })=>{
+const LoginForm = ({ currentUser }: LoginFormProps)=>{
 
     const [ isLoading, setIsLoading ] = useState(false);
     const { register, handleSubmit, formState: {errors} } = useForm<FieldValues>({

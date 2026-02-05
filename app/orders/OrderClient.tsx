@@ -28,7 +28,7 @@ type RowType = {
     deliveryStatus: string | null;
   };
 
-const  OrderClient: React.FC<OrderClientProps> = ({ orders }) =>{
+const  OrderClient = ({ orders }: OrderClientProps) =>{
 
     const router = useRouter();
 

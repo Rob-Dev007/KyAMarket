@@ -12,7 +12,7 @@ interface ItemContentProps{
     item: productCartType,
 }
 
-const ItemContent: React.FC<ItemContentProps> = ({ item })=>{
+const ItemContent = ({ item }: ItemContentProps)=>{
 
     const { handleRemoveItemCart, handleQtyIncrease, handleQtyDecrease } = UseCart();
 

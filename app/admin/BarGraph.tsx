@@ -10,7 +10,7 @@ interface BarGraphProps {
   amounts: number[];
 }
 
-const BarGraph: React.FC<BarGraphProps> = ({ labels, amounts }) => {
+const BarGraph = ({ labels, amounts }: BarGraphProps) => {
   const chartData = {
     labels,
     datasets: [

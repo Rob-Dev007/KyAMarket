@@ -21,7 +21,7 @@ interface AddRatingProps{
     }) | null
 }
 
-const AddRating: React.FC<AddRatingProps> = ({ product, user })=>{
+const AddRating = ({ product, user }: AddRatingProps)=>{
 
     const [ isLoading, setIsLoading ] = useState(false);
     const router = useRouter();

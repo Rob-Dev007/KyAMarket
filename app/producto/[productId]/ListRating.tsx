@@ -14,7 +14,7 @@ interface ListaRatingProps {
     }
   }
 
-const ListaRating: React.FC<ListaRatingProps> = ({ product })=>{
+const ListaRating = ({ product }: ListaRatingProps)=>{
 
     if(product.reviews.length === 0) return null;
     

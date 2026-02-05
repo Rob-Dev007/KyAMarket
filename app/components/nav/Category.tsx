@@ -11,7 +11,7 @@ interface CategoryProps{
     selected?: boolean
 }
 
-const Category: React.FC<CategoryProps> = ({ icon: Icon, label, selected })=>{
+const Category = ({ icon: Icon, label, selected }: CategoryProps)=>{
 
     const router = useRouter();
     const params = useSearchParams();

@@ -12,7 +12,7 @@ interface ButtonLabel{
     onclick : (e: React.MouseEvent<HTMLButtonElement>)=> void
 }
 
-const Button: React.FC<ButtonLabel> = ({ label, disabled, outline, small, custom, icon: Icon, onclick })=>{
+const Button = ({ label, disabled, outline, small, custom, icon: Icon, onclick }: ButtonLabel)=>{
     return (<button 
     className={`${outline ? 'bg-white' : 'bg-fuchsia-500'} ${outline ? 'text-slate-700' : 'text-white'} ${small ? 'text-sm font-light' : 'text-md'} ${small ? 'px-1 py-2 border-[1px]' : 'py-3 px-4 border-4'} ${custom ? '' : ''} disabled:opacity-70 disabled:cursor-not-allowed rounded-md hover:opacity-80 transition w-full border-fuchsia-500 flex items-center justify-center gap-2 font-semibold`}
     onClick={ onclick }

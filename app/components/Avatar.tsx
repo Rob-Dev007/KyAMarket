@@ -7,7 +7,7 @@ interface AvatarProps{
     src?: string | null | undefined,
 }
 
-const Avatar: React.FC<AvatarProps> = ({ src })=>{
+const Avatar = ({ src }: AvatarProps)=>{
         if(src){
             return(
                 <Image src={ src } alt="Avatar" className="rounded-full" height='30' width='30'/>

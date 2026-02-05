@@ -6,7 +6,7 @@ interface CartProviderProps{
     children: React.ReactNode;
 };
 
-const CartProvider: React.FC<CartProviderProps> = ({ children })=>{
+const CartProvider = ({ children }: CartProviderProps)=>{
     return(
         <CartContextProvider>
             { children }

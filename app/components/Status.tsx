@@ -10,7 +10,7 @@ interface StatusProps{
     color: string
 }
 
-const Status: React.FC<StatusProps> = ({ text, icon: Icon, bg, color })=>{
+const Status = ({ text, icon: Icon, bg, color }: StatusProps)=>{
     return(
         <div className={`${bg} ${color} flex px-1 rounded items-center justify-center gap-1`}>
             {text}< Icon size={ 15 }/>

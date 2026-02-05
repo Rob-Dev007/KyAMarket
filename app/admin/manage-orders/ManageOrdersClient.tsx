@@ -32,7 +32,7 @@ type OrderRow = {
     deliveryStatus: string | null;
   };
 
-const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) =>{
+const ManageOrdersClient = ({ orders }: ManageOrdersClientProps) =>{
 
     const router = useRouter();
 

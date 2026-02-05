@@ -10,7 +10,7 @@ interface SelectImageProps{
 
 }
 
-const SelectImage: React.FC<SelectImageProps> = ({ item, handleFileChange })=>{
+const SelectImage = ({ item, handleFileChange }: SelectImageProps)=>{
 
     const onDrop = useCallback((acceptedFiles: File[])=>{
         if(acceptedFiles.length > 0){

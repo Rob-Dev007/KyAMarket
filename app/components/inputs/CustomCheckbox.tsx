@@ -10,7 +10,7 @@ interface CustomCheckboxProps{
 
 }
 
-const CustomCheckbox: React.FC<CustomCheckboxProps> = ({ id, label, disabled, register })=>{
+const CustomCheckbox = ({ id, label, disabled, register }: CustomCheckboxProps)=>{
     return(
         <div className="w-full flex flex-row gap-2 items-center">
             <input id={id} type="checkbox" disabled={ disabled } {...register(id)} placeholder="" className="cursor-pointer"/>

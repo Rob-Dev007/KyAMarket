@@ -11,7 +11,7 @@ interface TextAreaProps{
     errors: FieldErrors
 }
 
-const TextArea: React.FC<TextAreaProps> = ({ id, label, disabled, required, register, errors  })=>{
+const TextArea = ({ id, label, disabled, required, register, errors  }: TextAreaProps)=>{
     return(
         <div className="w-full relative">
         <textarea id={ id } disabled={ disabled } {...register(id,{ required })} placeholder='' className={`peer w-full p-4 pt-6 max-h-[150px] min-h-[150px] outline-none bg-white font-light border-2 rounded-md transition disabled:opacity-70 disabled:cursor-not-allowed ${errors[id] ? 'border-rose-500' : 'border-fuchsia-400'} ${errors[id] ? 'focus:border-rose-500' : 'focus:border-fuchsia-500'}`} />

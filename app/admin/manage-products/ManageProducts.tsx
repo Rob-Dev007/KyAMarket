@@ -27,7 +27,7 @@ type RowData = {
     inStock: boolean;
   };
 
-const ManageProductsClient: React.FC<ManageProductsProps> = ({ products })=>{
+const ManageProductsClient = ({ products }: ManageProductsProps)=>{
 
     const router = useRouter();
     const storage =  getStorage(firebaseApp);

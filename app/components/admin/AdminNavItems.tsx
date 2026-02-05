@@ -7,7 +7,7 @@ interface AdminNavItemProps{
 }
 
 
-const AdminNavItem: React.FC<AdminNavItemProps> = ({ selected, icon: Icon, label })=>{
+const AdminNavItem = ({ selected, icon: Icon, label }: AdminNavItemProps)=>{
     return(
         <div className={`flex items-center justify-center text-center gap-1 p-2 hover:text-slate-800 transition cursor-pointer ${selected ? 'border-b-slate-800 border-b-4 text-slate-800' : 'border-transparent text-slate-500'}`}>
             <Icon size={20} />

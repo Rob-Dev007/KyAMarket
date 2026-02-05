@@ -9,7 +9,7 @@ interface SetQuantityProps{
     handleQtyDecrease : () => void,
 }
 
-const SetQuantity: React.FC<SetQuantityProps> = ({ cartCounter, cartProduct, handleQtyDecrease, handleQtyIncrease })=>{
+const SetQuantity = ({ cartCounter, cartProduct, handleQtyDecrease, handleQtyIncrease }: SetQuantityProps)=>{
     return(
         <div className="flex gap-8 items-center">
             {cartCounter ? null : <div className="font-semibold uppercase">Cantidad: </div>}

@@ -8,7 +8,7 @@ interface ActionsBtnProps{
     disabled?: boolean
 }
 
-const ActionsBtn: React.FC<ActionsBtnProps> = ({ icon: Icon, onClick, disabled })=>{
+const ActionsBtn = ({ icon: Icon, onClick, disabled }: ActionsBtnProps)=>{
     return(
         <button onClick={ onClick }
         disabled={ disabled }

@@ -13,7 +13,7 @@ interface UserMenuProps{
     currentUser : SafeUser | null 
 }
 
-const UserMenu:React.FC<UserMenuProps> = ({ currentUser })=>{
+const UserMenu = ({ currentUser }: UserMenuProps)=>{
 
     const [ isOpen, setIsOpen ] = useState(false);
 

@@ -12,14 +12,14 @@ interface InputProps{
     errors? : FieldErrors
 }
 
-const Input: React.FC<InputProps> = ({
+const Input = ({
     id, 
     label,  
     disabled, 
     required, 
     register, 
     errors
-})=>{
+}: InputProps)=>{
     const errorExists = errors && errors[id];
 
     return (

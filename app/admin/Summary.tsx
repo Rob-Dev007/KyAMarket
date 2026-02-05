@@ -15,7 +15,7 @@ type SummaryDataType = {
   isCurrency?: boolean;
 };
 
-const Summary: React.FC<SummaryProps> = ({ orders, products, users }) => {
+const Summary = ({ orders, products, users }: SummaryProps) => {
   // Procesamos los datos directamente
   const totalSale = orders.reduce((acc, item) => {
     return item.status === "complete" ? acc + item.amount / 100 : acc;

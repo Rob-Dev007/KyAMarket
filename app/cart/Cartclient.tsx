@@ -15,7 +15,7 @@ interface CartClientProps {
 }
 
 
-const CartClient: React.FC<CartClientProps> = ({ currentUser })=>{
+const CartClient = ({ currentUser }: CartClientProps)=>{
 
     const { cartProducts, handleClearCart, cartTotalAmount } = UseCart();
 

@@ -12,7 +12,7 @@ interface SelectColorProps{
     isProductCreated: boolean
 }
 
-const SelectColor: React.FC<SelectColorProps> = ({ item, addImageToState, removeImageFromState, isProductCreated })=>{
+const SelectColor = ({ item, addImageToState, removeImageFromState, isProductCreated }: SelectColorProps)=>{
 
     const [ isSelected, setIsSelected ] = useState(false);
     const [ file, setFile ] = useState<File | null>(null);

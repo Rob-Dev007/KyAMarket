@@ -17,7 +17,7 @@ interface RegisterFormProps{
     currentUser : SafeUser | null
 }
 
-const RegisterForm:React.FC<RegisterFormProps> = ({ currentUser })=>{
+const RegisterForm = ({ currentUser }: RegisterFormProps)=>{
 
     const [ isLoading, setIsLoading ] = useState(false);
     const { register, handleSubmit, formState: {errors} } = useForm<FieldValues>({

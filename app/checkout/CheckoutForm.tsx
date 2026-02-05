@@ -13,7 +13,7 @@ interface CheckoutFormProps {
     handlePaymentSuccess : (value: boolean)=> void,
 }
 
-const CheckoutForm: React.FC<CheckoutFormProps> = ({ clientSecret, handlePaymentSuccess })=>{
+const CheckoutForm = ({ clientSecret, handlePaymentSuccess }: CheckoutFormProps)=>{
     const { cartTotalAmount,handleClearCart, handleSetPaymentIntent } = UseCart();
     const stripe = useStripe();
     const elements = useElements();

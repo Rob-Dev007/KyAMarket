@@ -9,7 +9,7 @@ interface CategoryInputProps{
     onClick: (value: string)=> void
 }
 
-const CategoryInput: React.FC<CategoryInputProps> = ({ selected, label, icon:Icon, onClick })=>{
+const CategoryInput = ({ selected, label, icon:Icon, onClick }: CategoryInputProps)=>{
 
     return(
         <div onClick={()=>onClick(label)} className={`rounded-xl border-2 p-4 flex flex-col gap-2 items-center hover:border-slate-500 transition cursor-pointer ${selected ? 'border-slate-500' : 'border-slate-200'}`}>

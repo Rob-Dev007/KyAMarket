@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 K&A Market
 
-## Getting Started
+🚀 **K&A Market** es un **e-commerce fullstack**  desarrollado como proyecto de portafolio personal, con una visión clara de producto escalable y monetizable en el futuro.
+Incluye una experiencia completa de compra para usuarios finales y un dashboard administrativo para la gestión del negocio.
 
-First, run the development server:
+🌍 **Demo en producción:**  
+👉 https://kya-market.vercel.app/
 
-```bash
+---
+
+🚀 Descripción del proyecto
+
+K&A Market simula una tienda online moderna, enfocada en buenas prácticas de desarrollo frontend y backend, optimización de rendimiento y una arquitectura preparada para crecer.
+
+El proyecto está pensado no solo como demostración técnica, sino como una base sólida para un producto real, con integraciones clave como pagos en línea, manejo de imágenes en la nube y análisis de ventas.
+
+## ✨ Características principales
+
+🧑‍💻 Usuario
+
+- 🔐 Autenticación de usuarios
+- ⭐ Sistema de reviews
+- 🛒 Carrito de compras
+- 💳 Pasarela de pagos con Stripe
+- 🗂️ Filtros por categoría
+- 📱 Diseño responsive
+- 🚫 Manejo de estados nulos
+- 🖼️ Optimización de imágenes
+- 🔎 Búsqueda por nombre
+
+🛠️ Dashboard Admin
+
+- 🛍️ CRUD de productos
+- 📊 Dashboard administrativo con gráficas
+- Visualización de métricas y ventas
+
+---
+
+## 🧰 Tecnologías utilizadas
+
+### Frontend
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind" />
+</p>
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+---
+
+### Backend
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=nodejs,mongodb,prisma" />
+</p>
+
+- Prisma ORM
+- MongoDB
+- API Routes (Next.js)
+
+---
+
+### Servicios y herramientas
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=stripe,vercel,git,github" />
+</p>
+
+- Stripe (pagos)
+- Cloudinary (gestión de imágenes)
+- Git + Conventional Commits
+- Deploy en Vercel
+- Arquitectura preparada para escalar
+
+---
+
+🧠 Buenas prácticas aplicadas
+
+- Tipado estricto con TypeScript
+- Eliminación de React.FC para un tipado más explícito
+- Componentes reutilizables y desacoplados
+- Commits semánticos (feat, fix, refactor, chore)
+- Manejo seguro de datos nulos
+- Optimización de carga de imágenes
+- Código legible y mantenible
+
+---
+
+📦 Instalación y uso local
+# Clonar repositorio
+git clone https://github.com/Rob-Dev007/kya-market.git
+
+# Entrar al proyecto
+cd kya-market
+
+# Instalar dependencias
+npm install
+
+# Ejecutar en desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+###Configura tus variables de entorno (.env) para:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-MongoDB
+-Stripe
+-Cloudinary
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+📌 Convención de commits
 
-To learn more about Next.js, take a look at the following resources:
+Este proyecto sigue Conventional Commits, por ejemplo:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- feat(cart): agrega lógica de carrito de compras
+- fix(product-card): gestiona datos nulos y agrega imagen fallback
+- refactor(null-data): remueve React.FC y mejora espaciado en título
+- chore(favicon): actualiza favicon del proyecto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Esto facilita el mantenimiento, escalabilidad y trabajo en equipo.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🎯 Objetivo del proyecto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este proyecto fue desarrollado con énfasis en:
+
+- ✅ Buenas prácticas de React y Next.js
+- 🧩 Componentes reutilizables
+- 🧠 Manejo correcto de estados nulos
+- ⚙️ Tipado estricto con TypeScript
+- 🧹 Código limpio y mantenible
+- 📝 Commits semánticos (Conventional Commits)
+
+---
+
+## 👨‍💻 Autor
+
+**Roberto Antonio Paredes Camacho**  
+Desarrollador Web Fullstack
+
+- 🌐 Portafolio: *(próximamente)*
+- 💼 LinkedIn: *(opcional)*
+- 🐙 GitHub: https://github.com/Rob-Dev007
+
+---
+
+📸 Screenshots
+
+Home
+
+Página de producto
+
+Carrito
+
+Dashboard admin
+
+---
+
+⭐ Si este proyecto te resulta interesante, no dudes en dejar una estrella.

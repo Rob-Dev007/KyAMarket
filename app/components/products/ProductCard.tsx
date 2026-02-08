@@ -24,15 +24,15 @@ type ReviewType = {
     reviews: ReviewType[];
   };
 const ProductCard = ({ data }: productsProps)=>{
+    
+    const router = useRouter();
 
     if(!data) return null;
 
     const productRating =  data.reviews.length > 0 ? data.reviews.reduce((acc: number, item: ReviewType)=> acc + item.rating , 0)/data.reviews.length : 0;
 
     const srcImg = data?.images?.length > 0 ? data.images[0].image : 'Placeholder.png';
-
-    const router = useRouter();
-    
+ 
     return(
         <div className="col-span-1 cursor-pointer border-2 border-fuch bg-gray-50 rounded-lg p-2 transition hover:scale-105 text-center text-sm"
         onClick={()=> router.push(`/producto/${data.id}`) }>

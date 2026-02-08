@@ -47,25 +47,28 @@ const AddProductsForm = ()=>{
         }
     });
 
-    const setCustomValue = (id: keyof FieldValues, value: FieldValues[keyof FieldValues])=>{
+    const setCustomValue = useCallback((
+        id: keyof FieldValues, 
+        value: FieldValues[keyof FieldValues])=>{
         setValue(id, value, {
             shouldValidate: true,
             shouldDirty: true,
             shouldTouch: true
         })
-    }
+    }, [setValue]);
 
     useEffect(()=>{
         setCustomValue('images', images)
-    },[images]);
+    },[images, setCustomValue]);
 
     useEffect(()=>{
-        if(isProductCreated){
+        if(!isProductCreated) return;
+
             reset();
             setImages(null);
             setIsProductCreated(false);
-        }
-    },[])
+        
+    },[isProductCreated])
 
     const onSubmit: SubmitHandler<FieldValues> = async(data) =>{
         //uploaded images to Cloudinary

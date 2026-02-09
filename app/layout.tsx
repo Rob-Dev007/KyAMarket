@@ -1,14 +1,25 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "./components/nav/Navbar";
 import Footer from "./components/footer/Footer";
 import CartProvider from "@/providers/CartProvider";
 import { Toaster } from "react-hot-toast";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400" , "900"],
+const poppins = localFont({
+  src: [
+    {
+      path: "../fonts/Poppins-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Poppins-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {

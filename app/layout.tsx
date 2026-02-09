@@ -9,12 +9,12 @@ import { Toaster } from "react-hot-toast";
 const poppins = localFont({
   src: [
     {
-      path: "../fonts/Poppins-Regular.ttf",
+      path: "../font/local/Poppins-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../fonts/Poppins-Black.ttf",
+      path: "../font/local/Poppins-Black.ttf",
       weight: "900",
       style: "normal",
     },

@@ -16,23 +16,23 @@ El proyecto está pensado no solo como demostración técnica, sino como una bas
 
 ## ✨ Características principales
 
-🧑‍💻 Usuario
+ Usuario
 
 - 🔐 Autenticación de usuarios
 - ⭐ Sistema de reviews
-- 🛒 Carrito de compras
+- 📲 Carrito de compras
 - 💳 Pasarela de pagos con Stripe
-- 🗂️ Filtros por categoría
+- 🔍 Filtros por categoría
 - 📱 Diseño responsive
 - 🚫 Manejo de estados nulos
-- 🖼️ Optimización de imágenes
+- ✔ Optimización de imágenes
 - 🔎 Búsqueda por nombre
 
-🛠️ Dashboard Admin
+Dashboard Admin
 
 - 🛍️ CRUD de productos
 - 📊 Dashboard administrativo con gráficas
-- Visualización de métricas y ventas
+- 📈 Visualización de métricas y ventas
 
 ---
 
@@ -74,7 +74,7 @@ El proyecto está pensado no solo como demostración técnica, sino como una bas
 
 ---
 
-🧠 Buenas prácticas aplicadas
+✔ Buenas prácticas aplicadas
 
 - Tipado estricto con TypeScript
 - Eliminación de React.FC para un tipado más explícito
@@ -144,7 +144,7 @@ Desarrollador Web Fullstack
 
 ---
 
-📸 Screenshots
+📱 Screenshots
 
 Home
 
@@ -153,6 +153,12 @@ Página de producto
 Carrito
 
 Dashboard admin
+
+---
+
+## Notas técnicas
+
+- Next.js fue actualizado para garantizar compatibilidad con el entorno de deploy.
 
 ---
 

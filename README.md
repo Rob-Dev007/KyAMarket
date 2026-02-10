@@ -147,16 +147,16 @@ Desarrollador Web Fullstack
 ## 🖼️ Capturas de pantalla
 
 ### 🏠 Home
-![Home](./public/screenshots/home.png)
+![Home](./public/screenshots/kya-market-home.png)
 
 ### 📦 Página de producto
-![Producto](./public/screenshots/product.png)
+![Producto](./public/screenshots/kya-market-product.png)
 
 ### 🛒 Carrito
-![Carrito](./public/screenshots/cart.png)
+![Carrito](./public/screenshots/kya-market-shopping-cart.png)
 
 ### 🛠️ Dashboard Admin
-![Dashboard](./public/screenshots/admin-dashboard.png)
+![Dashboard](./public/screenshots/kya-market-dashboard-admin.png)
 
 ---
 

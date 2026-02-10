@@ -144,15 +144,19 @@ Desarrollador Web Fullstack
 
 ---
 
-📱 Screenshots
+## 🖼️ Capturas de pantalla
 
-Home
+### 🏠 Home
+![Home](./public/screenshots/home.png)
 
-Página de producto
+### 📦 Página de producto
+![Producto](./public/screenshots/product.png)
 
-Carrito
+### 🛒 Carrito
+![Carrito](./public/screenshots/cart.png)
 
-Dashboard admin
+### 🛠️ Dashboard Admin
+![Dashboard](./public/screenshots/admin-dashboard.png)
 
 ---
 

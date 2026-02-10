@@ -1,6 +1,6 @@
 import prisma from "@/libs/prismadb";
 
-export default async function getOrderById({ orderId }: { orderId: string }) {
+export default async function getOrderById(orderId: string) {
     try {
 
         if (!orderId) return null;

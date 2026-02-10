@@ -4,13 +4,14 @@ import getOrderById from "@/actions/getOrderById";
 import NullData from "@/app/components/NullData";
 
 interface PageProps {
-  params: {
     orderId: string;
-  };
 }
 
-const Page = async ({ params }: PageProps) => {
-  const order = await getOrderById({ orderId: params.orderId });
+const Page = async ({ params }: { params: Promise<PageProps>}) => {
+
+  const { orderId }= await params;
+
+  const order = await getOrderById(orderId);
 
   if (!order) {
     return <NullData title="No hay órdenes" />;

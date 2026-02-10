@@ -1,13 +1,7 @@
 import prisma from "@/libs/prismadb";
 
-interface IParams{
-    productId? : string
-}
-
-export default async function getProductById(params: IParams){
+export default async function getProductById(productId: string){
     try{
-
-        const { productId } = params;
 
         if(!productId) return null;
 
@@ -26,8 +20,6 @@ export default async function getProductById(params: IParams){
                 }
             }
         })
-
-        if(!product) return null;
 
         return product;
     }catch(error: any){

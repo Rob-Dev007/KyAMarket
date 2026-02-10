@@ -8,12 +8,14 @@ import { getCurrentUser } from "@/actions/getCurrentUser";
 
 
 interface IParams{
-    productId? : string 
+    productId : string 
 }
 
-const Product = async ({ params } : { params : IParams })=>{
+const Product = async ({ params } : { params : Promise<IParams> })=>{
 
-    const product = await getProductById(params);
+    const { productId }= await params;
+
+    const product = await getProductById(productId);
 
     const user = await getCurrentUser();
 
